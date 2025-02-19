@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fun Time Pass Hub</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            text-align: center;
+            background-color: #ffddcc;
+            color: #333;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 500px;
+            margin: auto;
+        }
+        input {
+            padding: 10px;
+            border: 2px solid #ff6699;
+            border-radius: 10px;
+            font-size: 16px;
+            width: 80%;
+            text-align: center;
+        }
+        button {
+            background-color: #ff6699;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            margin: 10px;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+        button:hover {
+            background-color: #ff3366;
+        }
+        .output {
+            font-size: 20px;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎉 Welcome to Fun Time Pass Hub! 🎉</h1>
+        <p>Enter your nickname to unlock the fun!</p>
+        <input type="text" id="nickname" placeholder="Enter your nickname...">
+        
+        <h2>Pick an activity!</h2>
+        <button onclick="showJoke()">😂 Tell me a joke</button>
+        <button onclick="showPickupLine()">💘 Give me a pickup line</button>
+        <button onclick="showFunFact()">🤯 Fun fact, please!</button>
+
+        <p class="output" id="result"></p>
+    </div>
+
+    <script>
+        function getNickname() {
+            let name = document.getElementById("nickname").value.trim();
+            return name ? name : "Friend";
+        }
+
+        function showJoke() {
+            let jokes = [
+                "Why don’t skeletons fight each other? They don’t have the guts!",
+                "I'm reading a book on anti-gravity. It's impossible to put down!",
+                "Parallel lines have so much in common. It’s a shame they’ll never meet!"
+            ];
+            let joke = jokes[Math.floor(Math.random() * jokes.length)];
+            document.getElementById("result").innerText = getNickname() + ", here's a joke: " + joke;
+        }
+
+        function showPickupLine() {
+            let lines = [
+                "Are you a magician? Because whenever I look at you, everyone else disappears!",
+                "Do you have a map? I keep getting lost in your eyes!",
+                "Are you French? Because Eiffel for you!"
+            ];
+            let line = lines[Math.floor(Math.random() * lines.length)];
+            document.getElementById("result").innerText = getNickname() + ", try this pickup line: " + line;
+        }
+
+        function showFunFact() {
+            let facts = [
+                "Bananas are berries, but strawberries aren’t!",
+                "Honey never spoils. Archaeologists found 3000-year-old honey that’s still edible!",
+                "There’s a species of jellyfish that can live forever!"
+            ];
+            let fact = facts[Math.floor(Math.random() * facts.length)];
+            document.getElementById("result").innerText = getNickname() + ", did you know? " + fact;
+        }
+    </script>
+</body>
+</html>
